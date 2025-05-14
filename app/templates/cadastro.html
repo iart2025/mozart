@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro – Mozart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .text-neon {
+            color: #00ffe0;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen p-6">
+
+    <h2 class="text-2xl font-bold text-neon mb-4">Cadastro de Usuário</h2>
+
+    <form method="POST" class="bg-gray-800 p-6 rounded shadow-md w-full max-w-md flex flex-col gap-4">
+        {{ form.hidden_tag() }}
+
+        {{ form.nome(class="p-3 rounded text-black", placeholder="Nome completo") }}
+        {{ form.email(class="p-3 rounded text-black", placeholder="Email") }}
+        {{ form.senha(class="p-3 rounded text-black", placeholder="Senha") }}
+        {{ form.tipo(class="p-3 rounded text-black") }}
+        {{ form.telefone(class="p-3 rounded text-black", placeholder="WhatsApp (somente se for profissional)") }}
+
+        {{ form.submit(class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded") }}
+        <a href="/login" class="text-sm text-blue-400 hover:text-blue-300 text-center">Já tem conta? Faça login</a>
+    </form>
+
+</body>
+</html>

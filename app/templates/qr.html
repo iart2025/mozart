@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Code – Mozart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .text-neon {
+            color: #00ffe0;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen p-6">
+
+    <h2 class="text-2xl font-bold text-neon mb-4">Seu QR Code do WhatsApp</h2>
+
+    <div class="bg-gray-800 p-4 rounded shadow-md flex flex-col items-center">
+        <img src="{{ qr_img }}" alt="QR Code do WhatsApp" class="w-48 h-48 mb-4 rounded" />
+        <a href="/dashboard" class="underline text-blue-400 hover:text-blue-300">← Voltar ao Painel</a>
+    </div>
+
+</body>
+</html>

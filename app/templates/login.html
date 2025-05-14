@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Login – Mozart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .text-neon {
+            color: #00ffe0;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen p-4">
+
+    <h2 class="text-3xl font-bold text-neon mb-6">Entrar na Plataforma</h2>
+
+    <form method="POST" class="bg-gray-800 p-6 rounded shadow-md w-full max-w-sm space-y-4">
+        {{ form.hidden_tag() }}
+
+        <div>
+            {{ form.email.label(class_="block mb-1 text-sm font-medium") }}
+            {{ form.email(class_="w-full p-2 rounded text-black") }}
+        </div>
+
+        <div>
+            {{ form.senha.label(class_="block mb-1 text-sm font-medium") }}
+            {{ form.senha(class_="w-full p-2 rounded text-black") }}
+        </div>
+
+        <div class="flex items-center justify-between">
+            {{ form.submit(class_="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white font-bold") }}
+            <a href="/cadastro" class="text-sm text-blue-400 hover:underline">Criar Conta</a>
+        </div>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="mt-4 text-red-400">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+</body>
+</html>

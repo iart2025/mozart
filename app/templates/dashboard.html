@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html class="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white p-6">
+    <h2 class="text-xl mb-4">Olá, {{ usuario.nome }}!</h2>
+
+    <a href="/literatura" class="underline text-blue-400">Ver Literatura Terapêutica</a><br>
+
+    {% if usuario.tipo == 'Profissional' %}
+    <p class="mt-4">Compartilhe seu link do WhatsApp:</p>
+    <a href="{{ qr }}" target="_blank" class="underline text-green-400">{{ qr }}</a><br>
+    {% endif %}
+
+    <div class="mt-6 space-y-2">
+        {% if usuario.tipo == 'Paciente' %}
+        <a href="{{ url_for('main.agendar') }}" class="block text-yellow-400 underline">Agendar Sessão</a>
+        {% endif %}
+        <a href="{{ url_for('main.sessoes') }}" class="block text-indigo-400 underline">Minhas Sessões</a>
+        <a href="{{ url_for('main.logout') }}" class="block text-red-400 underline">Sair</a>
+    </div>
+</body>
+</html>
